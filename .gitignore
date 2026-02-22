@@ -1,0 +1,16 @@
+# File sensitif
+config.php
+.env
+
+# Token cache
+token_cache.json
+
+# Upload user
+uploads/
+
+# File system
+.DS_Store
+Thumbs.db
+
+# Log file
+*.log

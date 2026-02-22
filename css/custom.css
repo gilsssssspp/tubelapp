@@ -1,0 +1,591 @@
+/* ==================================================
+  1) TOKENS (AMAN GLOBAL)
+================================================== */
+:root {
+  --bs-body-font-family: 'Poppins', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Arial, sans-serif;
+
+  --internal-font: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Arial, sans-serif;
+
+  --internal-bg: #f4f6f9;
+  --text-muted: #6c757d;
+
+  --brand-1: #007BFF;
+  --brand-2: #007BFF;
+
+  --radius-12: 12px;
+}
+
+/* ==================================================
+  2) INTERNAL APP (SEMUA HALAMAN INTERNAL)
+  Scope utama: .page-index2
+================================================== */
+.page-index2{
+  font-family: var(--internal-font);
+  background-color: var(--internal-bg);
+  margin: 0;
+  min-height: 100vh;
+  padding-bottom: 40px;
+
+  --elev-xs: 0 1px 4px rgba(0,0,0,0.10);
+  --elev-s:  0 2px 10px rgba(0,0,0,0.10);
+}
+
+/* Heading internal */
+.page-index2 h1,
+.page-index2 h2,
+.page-index2 h3,
+.page-index2 h4,
+.page-index2 h5,
+.page-index2 h6{
+  font-family: var(--bs-body-font-family);
+}
+
+/* ---------- INTERNAL: NAVBAR ---------- */
+.page-index2 .custom-navbar{
+  background: linear-gradient(135deg, var(--brand-1) 0%, var(--brand-2) 100%);
+  font-family: var(--bs-body-font-family);
+  box-shadow: none;
+  transition: box-shadow 0.25s ease, background 0.25s ease;
+  will-change: box-shadow;
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+}
+
+/* shadow saat scroll (jika JS menambah .scrolled) */
+.page-index2 .custom-navbar.scrolled{
+  box-shadow: var(--elev-xs);
+}
+
+/* Brand */
+.page-index2 .custom-navbar .navbar-brand{
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: 0.6px;
+  transition: color 0.25s ease;
+  text-decoration: none;
+}
+.page-index2 .custom-navbar .navbar-brand:hover{
+  color: #eaf2ff;
+}
+
+/* NAV LIST */
+.page-index2 .custom-navbar .navbar-nav{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* NAV LINK — default transparan */
+/* =========================
+   INTERNAL NAVBAR — FINAL (PILL PUTIH DEFAULT)
+   ========================= */
+
+/* Semua menu jadi putih */
+/* =========================
+   INTERNAL NAVBAR — FINAL (UNDERLINE CONSISTENT)
+   ========================= */
+
+/* Semua menu pill */
+.page-index2 .custom-navbar .navbar-nav .nav-link,
+.page-index2 .btn-logout{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px 18px;
+  border-radius: 999px;
+
+  background: #ffffff;
+  border: 1px solid #ffffff;
+
+  color: var(--brand-1);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.2;
+
+  text-decoration: none; /* default: tidak bergaris */
+
+  transition:
+    box-shadow .25s ease,
+    transform .15s ease,
+    color .2s ease;
+}
+
+/* Hover & Focus — UNDERLINE AKTIF */
+.page-index2 .custom-navbar .navbar-nav .nav-link:hover,
+.page-index2 .custom-navbar .navbar-nav .nav-link:focus,
+.page-index2 .btn-logout:hover,
+.page-index2 .btn-logout:focus{
+  text-decoration: underline;          /* ✅ garis muncul */
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+
+  background: #ffffff;
+  border-color: #ffffff;
+  color: var(--brand-1);
+
+  box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+  transform: translateY(-1px);
+}
+
+/* Active state */
+.page-index2 .custom-navbar .navbar-nav .nav-link.active{
+  background: #ffffff;
+  border-color: #ffffff;
+  color: var(--brand-1);
+  font-weight: 800;
+
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+}
+
+/* ---------- INTERNAL: DASHBOARD ---------- */
+.page-index2 h3{
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #406fe6da;
+}
+
+.page-index2 .card{
+  border-radius: var(--radius-12);
+  border: none;
+}
+.page-index2 .card.shadow{
+  box-shadow: var(--elev-s);
+}
+
+.page-index2 .card-header{
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+}
+.page-index2 .card-header h4{
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.page-index2 .alur-img{
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0 0 var(--radius-12) var(--radius-12);
+}
+
+.page-index2 p{
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+/* ---------- INTERNAL: RESPONSIVE ---------- */
+@media (max-width: 768px){
+  .page-index2 .custom-navbar .navbar-brand{ font-size: 1.05rem; }
+  .page-index2 h3{ font-size: 1.2rem; }
+}
+
+/* ---------- INTERNAL: CARD TABLE PENGAJUAN FULL LAYAR ---------- */
+.card-table-wide{
+  width: 100vw;
+  max-width: 1400px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+#dataTable th:nth-child(1),
+#dataTable td:nth-child(1){ width: 4%; text-align: center; }
+
+#dataTable th:nth-child(2),
+#dataTable td:nth-child(2){ width: 16%; }
+
+#dataTable th:nth-child(3),
+#dataTable td:nth-child(3){ width: 15%; }
+
+#dataTable th:nth-child(4),
+#dataTable td:nth-child(4){ width: 15%; }
+
+#dataTable th:nth-child(5),
+#dataTable td:nth-child(5){ width: 15%; text-align: center; }
+
+#dataTable th:nth-child(6),
+#dataTable td:nth-child(6){ width: 10%; text-align: center; }
+
+#dataTable th:nth-child(7),
+#dataTable td:nth-child(7){
+  width: 25%;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+/* =========================================================
+   SweetAlert2 – Theme (Poppins + ukuran judul lebih proporsional)
+   ========================================================= */
+.swal2-container .swal2-popup{
+  font-family: var(--bs-body-font-family);
+  border-radius: 14px;
+  padding: 22px 22px 18px;
+}
+
+.swal2-container .swal2-title{
+  font-family: var(--bs-body-font-family);
+  font-size: 22px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 10px 0 8px;
+}
+
+.swal2-container .swal2-html-container,
+.swal2-container .swal2-content{
+  font-family: var(--bs-body-font-family);
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: #374151;
+}
+
+.swal2-container .swal2-popup .swal2-actions .swal2-confirm.swal2-styled{
+  background-color: #007BFF;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 10px;
+  padding: 10px 22px;
+  box-shadow: none;
+}
+
+.swal2-container .swal2-popup .swal2-actions .swal2-cancel.swal2-styled{
+  background-color: #e5e7eb;
+  color: #111827;
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 10px;
+  padding: 10px 22px;
+  box-shadow: none;
+}
+
+/* ==================================================
+  3) LANDING PAGE (INDEX.PHP)
+  Scope utama: .page-landing
+================================================== */
+.page-landing{
+  font-family: var(--bs-body-font-family);
+}
+
+/* LANDING: paksa font untuk heading & utility heading */
+.page-landing h1,
+.page-landing h2,
+.page-landing h3,
+.page-landing h4,
+.page-landing h5,
+.page-landing h6,
+.page-landing .h1,
+.page-landing .h2,
+.page-landing .h3,
+.page-landing .h4,
+.page-landing .h5,
+.page-landing .h6{
+  font-family: var(--bs-body-font-family);
+}
+
+/* LANDING: NAVBAR */
+.page-landing #mainNav{
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+  font-family: var(--bs-body-font-family);
+}
+
+/* Desktop */
+@media (min-width: 992px){
+  .page-landing #mainNav{
+    background-color: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    box-shadow:
+      0 2px 10px rgba(0, 0, 0, 0.12),
+      0 1px 0 rgba(255, 255, 255, 0.35) inset;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+
+    transition:
+      background-color 0.25s ease,
+      box-shadow 0.25s ease,
+      backdrop-filter 0.25s ease;
+  }
+
+  .page-landing #mainNav.navbar-shrink{
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.18);
+    border-bottom: none;
+  }
+}
+
+/* LANDING: MENU */
+.page-landing #mainNav .navbar-nav{ gap: 8px; }
+
+.page-landing #mainNav .navbar-nav .nav-link{
+  padding: 5px 12px;
+  line-height: 1.2;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.2px;
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--bs-body-font-family);
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+}
+
+/* Desktop state */
+@media (min-width: 992px){
+  .page-landing #mainNav .navbar-nav .nav-link{
+    color: rgba(33, 37, 41, 0.9);
+    background-color: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  }
+
+  .page-landing #mainNav .navbar-nav .nav-link:hover{
+    background-color: rgba(255, 255, 255, 0.32);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+    transform: translateY(-1px);
+  }
+
+  .page-landing #mainNav.navbar-shrink .navbar-nav .nav-link{
+    background-color: rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 0, 0, 0.06);
+    box-shadow: none;
+  }
+}
+
+/* Active tetap aman */
+.page-landing #mainNav .navbar-nav .nav-item .nav-link.active{
+  color: rgba(33,37,41,.95) !important;
+}
+
+/* CTA Login */
+.page-landing #mainNav .navbar-nav .nav-link.nav-cta{
+  padding: 5px 12px;
+  line-height: 1.2;
+
+  background-color: rgba(79,141,247,.22);
+  border: 1px solid rgba(79,141,247,.35);
+  box-shadow: 0 2px 8px rgba(79,141,247,.25);
+  color: rgba(33,37,41,.95) !important;
+}
+
+.page-landing #mainNav .navbar-nav .nav-link.nav-cta:hover{
+  background-color: rgba(79,141,247,.32);
+  box-shadow: 0 6px 16px rgba(79,141,247,.35);
+  transform: translateY(-1px);
+}
+
+/* HERO */
+.page-landing .logo-wrapper{
+  display: inline-flex;
+  padding: 14px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.18);
+}
+.page-landing .logo-masthead{
+  width: 90px;
+  height: auto;
+  display: block;
+}
+.page-landing .judul-box{
+  position: relative;
+  margin-top: 28px;
+  padding: 26px 36px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.60);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 14px 40px rgba(0,0,0,.16);
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.page-landing .judul-box::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 18px;
+  bottom: 18px;
+  width: 4px;
+  border-radius: 4px;
+  background: linear-gradient(to bottom, #4F8DF7, #5FA3FF);
+}
+.page-landing .judul-utama{
+  margin: 0;
+  font-family: var(--bs-body-font-family);
+  font-weight: 600;
+  font-size: clamp(1.55rem, 2.4vw, 2.25rem);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: #1f2937;
+}
+
+/* Responsive tweak */
+@media (max-width: 768px){
+  .page-landing .logo-masthead{ width: 76px; }
+  .page-landing .judul-box{ padding: 20px 18px; }
+  .page-landing .judul-box::before{ top: 14px; bottom: 14px; }
+}
+
+/* INFORMASI */
+.informasi-section{
+  padding-top: 3rem;
+  padding-bottom: 8rem;
+}
+
+/* Masthead spacing */
+body.page-landing header.masthead{
+  min-height: auto;
+  padding-top: 50px;
+  padding-bottom: 120px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 25%;
+}
+@media (min-width: 992px){
+  body.page-landing header.masthead{
+    padding-top: 50px;
+    padding-bottom: 40px;
+  }
+}
+@media (max-width: 768px){
+  body.page-landing header.masthead{
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-position: center top;
+  }
+}
+
+/* Informasi naik halus */
+body.page-landing section#informasi{ margin-top: -15px; }
+
+/* Info card */
+.info-card{
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: transform .3s ease, box-shadow .3s ease;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  padding: 1.75rem 1.5rem;
+  height: 100%;
+  width: 100%;
+}
+.info-card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.15);
+}
+.info-card h3{
+  margin: 0 0 0.75rem 0;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: #212529;
+}
+.info-img{
+  width: 600px;
+  max-width: 100%;
+  height: 300px;
+  object-fit: contain;
+  margin-bottom: 0.75rem;
+}
+.info-card p{
+  margin: 0;
+  line-height: 1.7;
+  color: #6c757d;
+  font-size: 0.95rem;
+}
+
+/* layout row informasi */
+#informasi .row{ margin-left: 0; margin-right: 0; }
+#informasi .row > div{ padding-left: 0; padding-right: 0; }
+
+@media (min-width: 768px){
+  #informasi .row{ display: flex; gap: 1.5rem; }
+  #informasi .row > div{ flex: 1 1 0; max-width: none; }
+}
+@media (max-width: 767.98px){
+  #informasi .row{ display: flex; flex-direction: column; gap: 1rem; }
+  #informasi .row > div{ flex: 0 0 100%; max-width: 100%; }
+  .info-img{ width: 200px; }
+}
+
+/* KONTAK */
+.kontak-section{
+  width: 100%;
+  padding: 72px 16px;
+  background-color: #5fa3ff;
+}
+.kontak-title{
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 28px;
+  color: #111827;
+  letter-spacing: 1.5px;
+}
+.kontak-wrapper{
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.kontak-row{
+  font-size: 18px;
+  margin: 5px 0;
+  color: #111827;
+  line-height: 1.7;
+}
+.label{
+  font-weight: 500;
+  margin-right: 6px;
+  white-space: nowrap;
+}
+.label i{
+  margin-right: 6px;
+  font-size: 14px;
+  color: #111827;
+}
+.value{ font-weight: 400; }
+.value a{
+  color: #111827;
+  text-decoration: none;
+  font-weight: 400;
+  cursor: pointer;
+  outline: none;
+}
+.value a:hover,
+.value a:focus{
+  text-decoration: underline;
+}
+
+@media (max-width: 576px){
+  .kontak-section{ padding: 56px 14px; }
+  .kontak-title{ font-size: 20px; }
+  .kontak-row{ font-size: 15.5px; }
+}

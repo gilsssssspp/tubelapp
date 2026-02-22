@@ -1,0 +1,120 @@
+html, body{
+  font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+button, input, select, textarea{
+  font-family: inherit;
+}
+
+
+.login-image{
+  position: relative;
+  min-height: 360px;
+
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  cursor: pointer;
+  border-radius: 10px;
+
+  /* efek halus saat ganti */
+  transition: filter .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+
+.login-image:hover{
+  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+}
+
+/* tombol panah */
+.logo-nav{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+
+  border: 1px solid rgba(0,0,0,0.12);
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(6px);
+
+  display: grid;
+  place-items: center;
+
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+
+  opacity: 0;
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.login-image:hover .logo-nav{ opacity: 1; }
+
+.logo-nav.prev{ left: 12px; }
+.logo-nav.next{ right: 12px; }
+
+.logo-nav:hover{
+  transform: translateY(-50%) scale(1.06);
+}
+
+
+/* wrapper input password agar ikon tidak menimpa teks */
+#pass {
+    padding-right: 44px; /* ruang untuk tombol mata */
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    border: 0;
+    background: transparent;
+    padding: 6px;
+    line-height: 0;
+    cursor: pointer;
+    color: #6c757d; /* netral abu-abu */
+}
+
+.toggle-password:hover {
+    color: #212529; /* netral lebih gelap */
+}
+
+.toggle-password:focus {
+    outline: none;
+    box-shadow: none;
+}
+.btn-login{
+  background-color: #1561ad;
+  border: 1px solid #1561ad;
+  color: #ffffff;
+
+  font-size: 0.95rem;
+  font-weight: 600;         /* ini yang bikin teks lebih tebal */
+  letter-spacing: 0.4px;    /* biar rapi/pro */
+  padding: 10px 26px;
+  border-radius: 6px;
+
+  transition: background-color .2s ease, box-shadow .2s ease, transform .15s ease;
+}
+
+.btn-login:hover{
+  background-color: #0f4c8a;
+  border-color: #0f4c8a;
+  box-shadow: 0 6px 18px rgba(21,97,173,.35);
+  transform: translateY(-1px);
+}
+
+.btn-login:active{
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(21,97,173,.25);
+}
+
+.btn-login:focus-visible{
+  outline: 2px solid rgba(21,97,173,.35);
+  outline-offset: 2px;
+}
+

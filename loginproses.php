@@ -208,18 +208,46 @@ $loginResponse = curl_post(
 
 $simpegData = json_decode($loginResponse, true);
 
+// Jika gagal
 if (($simpegData['code'] ?? 0) != 1) {
 
-    // update attempt
-    $db->query("
-        INSERT INTO login_attempts (ip_address, username, attempt_count, last_attempt)
-        VALUES ('$ip','$user',1,NOW())
-        ON DUPLICATE KEY UPDATE
-        attempt_count = attempt_count + 1,
-        last_attempt = NOW()
-    ");
+    // 1️⃣ Cek apakah karena token
+    if (isset($simpegData['message']) && 
+        stripos($simpegData['message'], 'token') !== false) {
 
-    login_gagal("Username/NIP atau password salah.");
+        // Hapus cache token
+        @unlink(__DIR__ . '/token_cache.json');
+
+        // Ambil token baru
+        $authToken = get_api_token($apiConf, $api_username, $api_password, $environment);
+
+        // Retry login sekali
+        $loginResponse = curl_post(
+            $apiConf['login_url'],
+            ['nip' => $user, 'password' => $pass],
+            [
+                'Content-Type: application/x-www-form-urlencoded',
+                "Auth: $authToken"
+            ],
+            $environment
+        );
+
+        $simpegData = json_decode($loginResponse, true);
+    }
+
+    // Jika tetap gagal setelah retry
+    if (($simpegData['code'] ?? 0) != 1) {
+
+        $db->query("
+            INSERT INTO login_attempts (ip_address, username, attempt_count, last_attempt)
+            VALUES ('$ip','$user',1,NOW())
+            ON DUPLICATE KEY UPDATE
+            attempt_count = attempt_count + 1,
+            last_attempt = NOW()
+        ");
+
+        login_gagal("Username/NIP atau password salah.");
+    }
 }
 
 /* =========================

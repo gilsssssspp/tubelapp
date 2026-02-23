@@ -230,7 +230,7 @@ if ($query && mysqli_num_rows($query) > 0) {
         <a href="detail.php?iddaftar=<?= urlencode($data['id']); ?>" class="btn btn-sm btn-warning">Edit</a>
         <a href="<?= htmlspecialchars($urlUpload); ?>?iddaftar=<?= urlencode($data['id']); ?>" class="btn btn-sm btn-info">Upload</a>
 
-<!--        <a href="submit.php?iddaftar=<?= urlencode($iddaftar); ?>" -->
+        <?php /*<a href="submit.php?iddaftar=<?= urlencode($iddaftar); ?>" */ ?>
         <a href="submit.php?iddaftar=<?= urlencode($data['id']); ?>"
         class="btn btn-primary"
         id="btnSubmitPendaftaran">

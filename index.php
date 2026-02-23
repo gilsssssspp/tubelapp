@@ -33,6 +33,8 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto my-2 my-lg-0">
                    <li class="nav-item dropdown">
+	<li class="nav-item"><a class="nav-link nav-cta" href="../index.php" target="_blank">Beranda Layanan SDM</a></li>
+
         <a class="nav-link dropdown-toggle nav-cta" href="#" id="panduanDropdown" role="button" 
            data-bs-toggle="dropdown" aria-expanded="false">
             Panduan

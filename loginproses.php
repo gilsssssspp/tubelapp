@@ -3,6 +3,18 @@ ob_start();
 session_start();
 require 'koneksi.php';
 
+// ===========================
+// 0.1 VALIDASI CSRF TOKEN
+// ===========================
+if (!isset($_POST['csrf']) || 
+    !isset($_SESSION['csrf']) || 
+    !hash_equals($_SESSION['csrf'], $_POST['csrf'])) {
+
+    $_SESSION['login_error'] = "Permintaan tidak valid (CSRF terdeteksi).";
+    header("Location: login.php");
+    exit;
+}
+
 $config = require __DIR__ . '/config.php';
 $apiConf = $config['api'];
 $environment = $config['environment'] ?? 'production';

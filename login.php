@@ -108,6 +108,9 @@ function togglePassword() {
                     <form method="POST" action="loginproses.php" class="user">
                         <h1 class="text-center mb-5">Halaman Login</h1>
                         
+		     <!-- CSRF Token -->
+                    <input type="hidden" name="csrf" value="<?= $_SESSION['csrf'] = bin2hex(random_bytes(32)) ?>">
+
                     <!-- input username -->
                     <div class="mb-3">
                         <input type="text" class="form-control form-control-user" id="name" name="name"placeholder="Username">
